@@ -2,12 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How Linux Works? | Basliq Labs</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --percentage: 0;
+      }
+
+      *,
+      *:after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        line-height: 1;
+        overflow-x: hidden;
+        inline-size: 100%;
+        font-family: "Ubuntu Mono", monospace;
+      }
+
+      main {
+        block-size: 100dvh;
+        inline-size: 100vw;
+
+        display: flex;
+
+        transform: translateX(var(--percentage));
+        transition: all 250ms ease-in;
+      }
+
+      section {
+        flex: 1 0 100%;
+      }
+
+      .first {
+        background-color: red;
+      }
+
+      .second {
+        background-color: blue;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <main>
+      <section class="first">hi</section>
+      <section class="second">hey</section>
+    </main>
   </body>
+
+  <script>
+    const root = document.documentElement;
+    const slide_num = document.querySelectorAll("section");
+
+    let index = 0;
+
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" && index > 0) {
+        index -= 1;
+        console.log(index);
+        root.style.setProperty("--percentage", index * -100 + "%");
+      }
+      if (e.key === "ArrowRight" && index < slide_num.length - 1) {
+        index += 1;
+        console.log(index);
+        root.style.setProperty("--percentage", index * -100 + "%");
+      }
+    });
+  </script>
 </html>

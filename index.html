@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 
     <style>
       :root {
@@ -27,7 +28,7 @@
 
       body {
         line-height: 1;
-        overflow-x: hidden;
+        overflow: hidden;
         inline-size: 100%;
         font-family: "Ubuntu Mono", monospace;
       }
@@ -39,26 +40,418 @@
         display: flex;
 
         transform: translateX(var(--percentage));
-        transition: all 250ms ease-in;
+        transition: all 500ms ease-in-out;
       }
 
       section {
         flex: 1 0 100%;
+        padding: 36px;
       }
 
-      .first {
-        background-color: red;
+      h2 {
+        font-size: 48px;
       }
 
-      .second {
-        background-color: blue;
+      .center {
+        block-size: 100%;
+        display: grid;
+        place-items: center;
+      }
+
+      .title__stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+
+        & h1 {
+          font-size: 96px;
+        }
+
+        & p {
+          font-size: 24px;
+        }
+
+        & .subtitle {
+          position: relative;
+        }
+
+        & .basliq-logo {
+          position: absolute;
+          transform: translate(-16%, -20%);
+          z-index: -1;
+        }
+      }
+
+      .history-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        & .text-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 48px;
+        }
+      }
+
+      .github {
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-end: -350px;
+
+        background-color: #0d1117;
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        overflow: hidden;
+
+        & .github-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #161b22;
+          padding: 9px;
+
+          & .github-header__left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            & .github-header__profile {
+              border-radius: 50%;
+              inline-size: 30px;
+              block-size: 30px;
+              background-color: #a754ff;
+            }
+
+            & .github-header__username a {
+              color: #fff;
+              font-weight: 700;
+              font-size: 16px;
+            }
+
+            & .github-header__commit-message {
+              color: #ccc;
+              font-size: 12px;
+            }
+          }
+
+          & .github-header__right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            & .github-header__time {
+              color: #ccc;
+              font-size: 12px;
+            }
+
+            & .github-header__commit-number {
+              color: #fff;
+              font-weight: 700;
+              font-size: 12px;
+            }
+          }
+        }
+
+        & .github-directories {
+          display: flex;
+          flex-direction: column;
+
+          & .github-directory {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            gap: 10px;
+            padding: 8px;
+            border-block-end: 1px solid #333;
+            align-items: center;
+
+            & .github-directory__name {
+              color: #fff;
+              font-size: 12px;
+            }
+
+            & .github-directory__commit {
+              color: #ccc;
+              font-size: 12px;
+            }
+
+            & .github-directory__time {
+              color: #eee;
+              justify-self: end;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .boot-loader-section {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        & .text-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: 1fr 1fr;
+          gap: 36px;
+
+          & .boot-loader-step {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            position: relative;
+
+            & .boot-loader-step-number {
+              position: absolute;
+              font-size: 96px;
+              font-weight: 700;
+              z-index: 0;
+              opacity: 0.1;
+              inset-block-start: -40px;
+              inset-inline-start: -30px;
+            }
+          }
+        }
+      }
+
+      .kernel-section {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        & .text-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 33%);
+          grid-template-rows: repeat(3, 33%);
+          gap: 24px;
+
+          & .kernel-image {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+            display: grid;
+            place-items: center;
+
+            & img {
+              max-inline-size: 350px;
+            }
+          }
+
+          & .kernel-part {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+          }
+
+          & .end {
+            justify-self: end;
+          }
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <section class="first">hi</section>
-      <section class="second">hey</section>
+      <section>
+        <div class="center">
+          <div class="title__stack">
+            <h1>How Linux Works?</h1>
+            <div class="subtitle">
+              <p>made in Basliq Labs, crazy Tabriz</p>
+              <img
+                src="./assets/logo.png"
+                alt="basliq logo"
+                class="basliq-logo"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <h2>History</h2>
+
+        <div class="text-grid">
+          <p>
+            Linux has its roots in Unix and Multics, two projects that shared
+            the goal of developing a robust multi-user operating system. Bell
+            Labs stopped funding the Multics project in 1969.
+          </p>
+
+          <p>
+            Research and development at Bell Labs continued. This group produced
+            the Berkeley Software Distribution (BSD), which inspired a range of
+            operating systems, many of which are still in use today.
+            <br /><br />
+            BSD became the basis for macOS and MINIX, an educational operating
+            system that formed a comparative basis for Linus Torvalds as he
+            developed Linux.
+          </p>
+
+          <p>
+            In 1991, Finnish undergraduate Linus Torvalds was becoming
+            frustrated with licensure for MINIX. Torvalds announced to a MINIX
+            user group on August 25, 1991 that he was developing his own
+            operating system, which resembled MINIX.<br /><br />Though initially
+            developed on MINIX using the GNU C compiler, the Linux kernel
+            quickly became a unique project with a core of developers who
+            released version 1.0 of the kernel with Torvalds in 1994.
+          </p>
+        </div>
+
+        <div class="github">
+          <div class="github-header">
+            <div class="github-header__left">
+              <div class="github-header__profile"></div>
+              <div class="github-header__username">
+                <a href="https://github.com/torvalds/linux" target="_blank"
+                  >torvalds</a
+                >
+              </div>
+              <div class="github-header__commit-message">
+                Merge tag 'chrome-platform-fixes-...
+              </div>
+            </div>
+
+            <div class="github-header__right">
+              <div class="github-header__time">c917de - 4 hours ago</div>
+              <div class="github-header__commit-number">1,294,527 commits</div>
+            </div>
+          </div>
+          <div class="github-directories">
+            <div class="github-directory">
+              <div class="github-directory__name">Documentation</div>
+              <div class="github-directory__commit">
+                Merge tag 'cxl-for-6.11 of git://git...
+              </div>
+              <div class="github-directory__time">2 days ago</div>
+            </div>
+            <div class="github-directory">
+              <div class="github-directory__name">LICENSES</div>
+              <div class="github-directory__commit">
+                LICENSES: Add the copyleft-next-0.3.1
+              </div>
+              <div class="github-directory__time">2 years ago</div>
+            </div>
+            <div class="github-directory">
+              <div class="github-directory__name">arch</div>
+              <div class="github-directory__commit">
+                Merge tag 'for-linus' of git://git.kernel...
+              </div>
+              <div class="github-directory__time">yesterday</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="boot-loader-section">
+        <h2>The Boot Loader</h2>
+
+        <div class="text-grid">
+          <div class="boot-loader-step">
+            <p class="boot-loader-step-number">01</p>
+            <h3>BIOS (Basic Input/Output System)</h3>
+            <p>
+              In simple terms, the BIOS loads and executes the Master Boot
+              Record (MBR) boot loader. Nowadays more modern interfaces are used
+              like UEFI (Unified Extensible Firmware Interface).<br /><br />
+              When you first turn on your computer, the BIOS first performs some
+              integrity checks of the HDD or SSD.
+            </p>
+          </div>
+
+          <div class="boot-loader-step">
+            <p class="boot-loader-step-number">02</p>
+            <h3>MBR (Master Boot Record)</h3>
+            <p>
+              A master boot record (MBR) is a type of boot sector in the first
+              few blocks of partitioned computer mass storage devices like fixed
+              disks or removable drives.<br /><br />
+              It holds 512 or more bytes of data about partition table.
+            </p>
+          </div>
+
+          <div class="boot-loader-step">
+            <p class="boot-loader-step-number">03</p>
+            <h3>Boot Loaders</h3>
+            <p>
+              There are many boot loaders that are used in Linux operating
+              systems like: 1- GRUB 2- LILO 3- SysLinux <br /><br />
+              Once the computer finds the boot loader on a device, it will run
+              it. Consequently, this loads a larger and more complex program
+              which eventually starts our operating system.
+            </p>
+          </div>
+
+          <div></div>
+
+          <div class="boot-loader-step">
+            <p class="boot-loader-step-number">04</p>
+            <h3>Kernel</h3>
+            <p>
+              The operating system now controls access to our computer
+              resources. Kernel will decompress itself and it will do some
+              hardware check, and run init processes if everything is fine.
+            </p>
+          </div>
+
+          <div class="boot-loader-step">
+            <p class="boot-loader-step-number">05</p>
+            <h3>Daemons</h3>
+            <p>
+              Depending on the operating system, Systemd or Init might take over
+              the processes. Daemons run in the background, and don't need user
+              interactions for the most parts. They mount file systems, manage
+              essential tasks like user login and run a desktop environment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="kernel-section">
+        <h2>The Kernel</h2>
+
+        <div class="text-grid">
+          <div class="kernel-part">
+            <h3>Memory Management</h3>
+          </div>
+
+          <div></div>
+
+          <div class="kernel-part end">
+            <h3>Network Stack</h3>
+          </div>
+
+          <div></div>
+
+          <div class="kernel-image">
+            <img src="/assets/logo.png" alt="kernel" />
+          </div>
+
+          <div></div>
+
+          <div class="kernel-part">
+            <h3>Process Management</h3>
+          </div>
+
+          <div></div>
+
+          <div class="kernel-part end">
+            <h3>Virtual File System</h3>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>File Systems and Permissions</h2>
+      </section>
     </main>
   </body>
 

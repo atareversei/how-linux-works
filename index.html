@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
     <style>
       :root {
@@ -249,6 +249,25 @@
           block-size: 100%;
         }
       }
+
+      .file-system-section {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        & .text-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 24px;
+
+          & .file-system-part {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+          }
+        }
+      }
     </style>
   </head>
   <body>
@@ -256,7 +275,7 @@
       <section>
         <div class="center">
           <div class="title__stack">
-            <h1>How Linux Works?</h1>
+            <h1>How Linux Works.</h1>
             <div class="subtitle">
               <p>made in Basliq Labs, crazy Tabriz</p>
               <img
@@ -456,13 +475,67 @@
 
         <img
           class="kernel-image"
-          src="/assets/linux-logo.png"
+          src="./assets/linux-logo.png"
           alt="linux mascot"
         />
       </section>
 
-      <section>
-        <h2>File Systems and Permissions</h2>
+      <section class="file-system-section">
+        <h2>File Systems</h2>
+        <div class="text-grid">
+          <div class="file-system-part">
+            <h3>FAT (File Allocation Table)</h3>
+            <p>
+              FAT is one of the oldest and simplest file systems. It was
+              initially developed for MS-DOS and is still used in many removable
+              storage devices.<br /><br />
+              It doesn't support file permissions, encryption, or compression.
+            </p>
+          </div>
+          <div class="file-system-part">
+            <h3>NTFS (New Technology File System)</h3>
+            <p>
+              NTFS is the default file system used by Windows NT-based operating
+              systems, starting in 1993 with Windows NT 3.1, all the way up to
+              and including Windows 11. It offers advanced features like file
+              permissions, encryption, compression, and journaling.<br /><br />
+              It has limited compatibility with other operating systems.
+            </p>
+          </div>
+          <div class="file-system-part">
+            <h3>Ext4 (Fourth Extended File System)</h3>
+            <p>
+              A widely used file system in the Linux operating system. It is the
+              successor to Ext3 and offers several improvements in terms of
+              performance, scalability, and reliability.<br /><br />
+              It is limited in terms of scalability.
+            </p>
+          </div>
+
+          <div></div>
+
+          <div class="file-system-part">
+            <h3>Btrfs (B-Tree File System)</h3>
+            <p>
+              Btrfs is a modern, advanced file system designed to address the
+              limitations of older file systems. It offers features such as
+              snapshot support, data deduplication, RAID, and online
+              defragmentation. Btrfs also enables the user to expand or shrink
+              file systems on-the-fly, making it a flexible choice for both
+              single and multi-disk setups.
+            </p>
+          </div>
+
+          <div class="file-system-part">
+            <h3>Thank you for your time! 😃</h3>
+            <p>
+              You can find the slides in my GitHub account at:
+              <a href="https://github.com/atareversei/how-linux-works"
+                >https://github.com/atareversei/how-linux-works</a
+              >
+            </p>
+          </div>
+        </div>
       </section>
     </main>
   </body>

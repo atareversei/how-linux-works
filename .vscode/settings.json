@@ -1,3 +1,12 @@
 {
-  "cSpell.words": ["Basliq", "MINIX", "UEFI", "userspace"]
+  "cSpell.words": [
+    "Basliq",
+    "Btrfs",
+    "defragmentation",
+    "journaling",
+    "MINIX",
+    "NTFS",
+    "UEFI",
+    "userspace"
+  ]
 }

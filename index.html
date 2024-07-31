@@ -226,33 +226,27 @@
         display: flex;
         flex-direction: column;
         gap: 48px;
+        position: relative;
 
         & .text-grid {
           display: grid;
-          grid-template-columns: repeat(3, 33%);
-          grid-template-rows: repeat(3, 33%);
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          max-inline-size: 70%;
           gap: 24px;
-
-          & .kernel-image {
-            grid-column: 1 / -1;
-            grid-row: 1 / -1;
-            display: grid;
-            place-items: center;
-
-            & img {
-              max-inline-size: 350px;
-            }
-          }
 
           & .kernel-part {
             display: flex;
             flex-direction: column;
             gap: 12px;
           }
+        }
 
-          & .end {
-            justify-self: end;
-          }
+        & .kernel-image {
+          position: absolute;
+          inset-block-start: -0px;
+          inset-inline-end: -450px;
+          block-size: 100%;
         }
       }
     </style>
@@ -421,32 +415,50 @@
         <div class="text-grid">
           <div class="kernel-part">
             <h3>Memory Management</h3>
+            <p>
+              Linux memory management includes allocating and freeing physical
+              memory – pages, groups of pages, and small blocks of main memory
+              and handling virtual memory that is memory mapped into the address
+              space of running processes.
+            </p>
           </div>
 
-          <div></div>
-
-          <div class="kernel-part end">
+          <div class="kernel-part">
             <h3>Network Stack</h3>
+            <p>
+              The kernel manages networking tasks. It supports different stacks
+              of the network by either implementing them from scratch or using
+              libraries like GnuSSL.
+            </p>
           </div>
-
-          <div></div>
-
-          <div class="kernel-image">
-            <img src="/assets/logo.png" alt="kernel" />
-          </div>
-
-          <div></div>
 
           <div class="kernel-part">
             <h3>Process Management</h3>
+            <p>
+              The kernel maintains info about each process in a process
+              descriptor, of type task_struct. Each process, or independently
+              scheduled execution context, has its own process descriptor known
+              as PID.
+            </p>
           </div>
 
-          <div></div>
-
-          <div class="kernel-part end">
+          <div class="kernel-part">
             <h3>Virtual File System</h3>
+            <p>
+              The Virtual File System (also known as the Virtual Filesystem
+              Switch) is the software layer in the kernel that provides the
+              filesystem interface to userspace programs. It also provides an
+              abstraction within the kernel which allows different filesystem
+              implementations to coexist.
+            </p>
           </div>
         </div>
+
+        <img
+          class="kernel-image"
+          src="/assets/linux-logo.png"
+          alt="linux mascot"
+        />
       </section>
 
       <section>

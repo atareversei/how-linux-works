@@ -52,6 +52,19 @@
         font-size: 48px;
       }
 
+      .intro-section {
+        background-image: linear-gradient(to top right, #2f096c, #6e31fd);
+        position: relative;
+
+        & .basliq-logo {
+          position: absolute;
+          inset-block-end: 0;
+          inset-inline-start: 50%;
+          transform: translate(-53%, 40%);
+          z-index: 10;
+        }
+      }
+
       .center {
         block-size: 100%;
         display: grid;
@@ -64,23 +77,17 @@
         align-items: center;
         justify-content: center;
         gap: 16px;
+        position: relative;
+        z-index: 20;
 
         & h1 {
           font-size: 96px;
+          color: #fff;
         }
 
         & p {
           font-size: 24px;
-        }
-
-        & .subtitle {
-          position: relative;
-        }
-
-        & .basliq-logo {
-          position: absolute;
-          transform: translate(-16%, -20%);
-          z-index: -1;
+          color: #fff;
         }
       }
 
@@ -272,19 +279,18 @@
   </head>
   <body>
     <main>
-      <section>
+      <section class="intro-section">
         <div class="center">
           <div class="title__stack">
             <h1>How Linux Works.</h1>
-            <div class="subtitle">
-              <p>made in Basliq Labs, crazy Tabriz</p>
-              <img
-                src="./assets/logo.png"
-                alt="basliq logo"
-                class="basliq-logo"
-              />
-            </div>
+            <p>made in Basliq Labs, crazy Tabriz</p>
           </div>
+        </div>
+        <img
+          src="./assets/logo.png"
+          alt="basliq logo"
+          class="basliq-logo"
+        />
         </div>
       </section>
 
